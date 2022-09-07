@@ -1,6 +1,7 @@
 import { useInView } from "react-intersection-observer";
 import { useInfiniteQuery } from "@tanstack/react-query";
 import { Fragment, useEffect } from "react";
+import styled from "styled-components";
 
 type Result = {
   poster_path: string | null;
@@ -64,35 +65,48 @@ const InfiniteScrollList = ({ pageName }: { pageName: string }) => {
     }
   );
 
+  const onErrorImg = (e: React.SyntheticEvent<HTMLImageElement, Event>) => {
+    e.currentTarget.src = "/logo192.png";
+  };
+
   useEffect(() => {
     if (inView) {
       fetchNextPage();
     }
-  }, [inView]);
+  }, [fetchNextPage, inView]);
 
   return (
-    <div>
-      <h1>Infinite Loading</h1>
+    <InfiniteScrollContainer>
       {isLoading ? (
         <p>Loading...</p>
       ) : (
-        <>
+        <MovieContainer>
           {data &&
             data.pages.map((response) => (
-              <>
-                {response &&
-                  response.results.map(({ id, poster_path, title }) => (
-                    <p key={id}>
-                      <img
-                        src={
-                          `https://image.tmdb.org/t/p/w500/${poster_path}` || ""
-                        }
-                        alt={`${title} 대체이미지`}
-                      />
-                      <div>{title}</div>
-                    </p>
-                  ))}
-              </>
+              <Fragment key={response.page}>
+                {response.results.map(
+                  ({ id, poster_path, title, release_date, vote_average }) => (
+                    <li key={id}>
+                      <ImageBox>
+                        <img
+                          src={`https://image.tmdb.org/t/p/w500/${poster_path}`}
+                          onError={onErrorImg}
+                          alt="썸네일"
+                        />
+                      </ImageBox>
+                      <div className="infoBox">
+                        <p>{title}</p>
+                        <p>
+                          {` ${release_date.split("-")[0]}년
+                          ${release_date.split("-")[1]}월 
+                          ${release_date.split("-")[2]}일 `}
+                        </p>
+                        <p>평점: {vote_average}</p>
+                      </div>
+                    </li>
+                  )
+                )}
+              </Fragment>
             ))}
           <div>
             <button
@@ -112,9 +126,29 @@ const InfiniteScrollList = ({ pageName }: { pageName: string }) => {
               ? "Background Updating..."
               : null}
           </div>
-        </>
+        </MovieContainer>
       )}
-    </div>
+    </InfiniteScrollContainer>
   );
 };
 export default InfiniteScrollList;
+const InfiniteScrollContainer = styled.div`
+  width: 100%;
+`;
+const MovieContainer = styled.ul`
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  li {
+    margin: 5px;
+    width: 200px;
+  }
+`;
+const ImageBox = styled.div`
+  width: 100%;
+  img {
+    width: inherit;
+    border-radius: 5px;
+    box-shadow: 0px 0px 7px rgba(105, 105, 105, 0.1);
+  }
+`;
