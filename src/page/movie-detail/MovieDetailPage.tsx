@@ -1,18 +1,18 @@
 import { useQuery } from "@tanstack/react-query";
-import { API } from "./api/apiUrls";
+import { API } from "../../services/apiUrls";
 import { useParams } from "react-router-dom";
 import * as S from "./style/MovieDetail.styled";
-import { Movie } from "./types/movieDetailType";
-import { Video } from "./types/videoType";
+import { MovieDetail } from "../../services/model";
+import { Video } from "../../services/model";
 
-import VideoComponent from "./components/VideoComponent";
-import Poster from "./components/Poster";
-import InfoTable from "./components/InfoTable";
-import Overview from "./components/Overview";
-import MovieRate from "./components/MovieRate";
+import VideoComponent from "../../components/VideoComponent";
+import Poster from "../../components/Poster";
+import InfoTable from "../../components/InfoTable";
+import Overview from "../../components/Overview";
+import MovieRate from "../../components/MovieRate";
+import LoadingCover from "../../components/LoadingCover";
 
-import LoadingPortal from "./utils/Portal";
-import LoadingCover from "./components/LoadingCover";
+import LoadingPortal from "../../utils/Portal";
 
 const MovieDetailPage = () => {
   const params = useParams();
@@ -20,7 +20,7 @@ const MovieDetailPage = () => {
   const getMovieDetail = async () => {
     if (params.id === undefined) return;
     const res = await fetch(API.getMovieDetail(params.id));
-    return res.json() as Promise<Movie>;
+    return res.json() as Promise<MovieDetail>;
   };
 
   const movieDetail = useQuery(["get-movie-detail", params.id], getMovieDetail);

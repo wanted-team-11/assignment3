@@ -1,5 +1,5 @@
 import React from "react";
-import * as S from "../style/VideoComponent.styled";
+import * as S from "./styles/VideoComponent.styled";
 
 const VideoComponent = ({ videoId }: { videoId: string | undefined }) => {
   return (

@@ -5,10 +5,11 @@ import {
   PopularMovieAPi,
   TopRatedMovieAPi,
   UpcoMingMovieAPi,
-} from "../../api/api";
-import MoviesContainer from "./MoviesContainer";
-import { Movies } from "../types/movie.type";
-import * as S from "./styles/HomepageContainer.styled";
+} from "../services/api";
+import MoviesContainer from "./HomeMoviesContainer";
+import { Movie } from "../services/model";
+// import * as S from "../../../components/styles/HomepageContainer.styled";
+import * as S from "../components/styles/HomepageContainer.styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -79,7 +80,7 @@ const HomePageContainer = () => {
           >
             <S.MoviesContainer>
               {movieQuery.isSuccess &&
-                movieQuery.data.data.results.map((movies: Movies) => {
+                movieQuery.data.data.results.map((movies: Movie) => {
                   return (
                     <SwiperSlide key={movies.id}>
                       <MoviesContainer movies={movies} />

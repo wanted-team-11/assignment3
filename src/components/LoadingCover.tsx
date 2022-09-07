@@ -1,4 +1,4 @@
-import Spinner from "../../assets/Spinner.gif";
+import Spinner from "../assets/Spinner.gif";
 
 const LoadingCover = () => {
   return (

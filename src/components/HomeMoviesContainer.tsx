@@ -1,9 +1,9 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import { Movies } from "../types/movie.type";
-import * as S from "./styles/MoviesContainer.styled";
+import { Movie } from "../services/model";
+import * as S from "./styles/HomeMoviesContainer.styled";
 
-const MoviesContainer = ({ movies }: { movies: Movies }) => {
+const MoviesContainer = ({ movies }: { movies: Movie }) => {
   const [isLoading, setIsLoading] = useState(true);
 
   const { poster_path, title, vote_average, release_date, id } = movies;

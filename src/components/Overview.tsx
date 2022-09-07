@@ -1,5 +1,5 @@
 import { useState } from "react";
-import * as S from "../style/OverView.styled";
+import * as S from "./styles/OverView.styled";
 
 const Overview = ({ children }: { children?: React.ReactNode }) => {
   const [isCollapsed, setIsCollapsed] = useState(true);

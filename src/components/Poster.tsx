@@ -1,7 +1,7 @@
-import * as S from "../style/Poster.styled";
+import * as S from "./styles/Poster.styled";
 import { useState } from "react";
 
-import Spinner from "../../assets/Spinner.gif";
+import Spinner from "../assets/Spinner.gif";
 
 const Poster = ({ src }: { src: string }) => {
   const [isLoaded, setIsLoaded] = useState(false);

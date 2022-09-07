@@ -1,4 +1,4 @@
-import HomePageContainer from "./components/HomepageContainer";
+import HomePageContainer from "../../components/HomepageContainer";
 
 const HomePage = () => {
   return (

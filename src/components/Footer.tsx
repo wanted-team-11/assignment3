@@ -1,6 +1,6 @@
 import styled from "styled-components";
 import { FaGithub, FaFacebook, FaInstagram } from "react-icons/fa";
-import logo from "../page/assets/원티드로고.png";
+import logo from "../assets/원티드로고.png";
 const Footer = () => {
   const ClicktoGithub = () => {
     window.location.href = "https://github.com/wanted-team-11/assignment3";
@@ -73,6 +73,7 @@ const FooterContainer = styled.div`
   background-color: #1c1d1f;
   height: 400px;
   padding: 35px 200px;
+  margin-top: 100px;
 `;
 
 const FooterContentBox = styled.div`

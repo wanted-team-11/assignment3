@@ -30,13 +30,12 @@ export const MovieInfoContainer = styled.div`
 `;
 
 export const MoviePoster = styled.div`
-  background-color: #8888b5;
   margin-left: 0;
   margin-right: auto;
-  width: 532px;
-  height: 758px;
+  width: 500px;
+  height: 710px;
   display: flex;
-  justify-content: center;
+  justify-content: flex-end;
   align-items: center;
 `;
 

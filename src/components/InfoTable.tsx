@@ -1,7 +1,7 @@
-import { Movie } from "../types/movieDetailType";
-import * as S from "../style/DetailInfo.styled";
+import { MovieDetail } from "../services/model";
+import * as S from "./styles/DetailInfo.styled";
 
-const InfoTable = ({ details }: { details: Movie | undefined }) => {
+const InfoTable = ({ details }: { details: MovieDetail | undefined }) => {
   if (details === undefined) {
     return <div>loading</div>;
   }
