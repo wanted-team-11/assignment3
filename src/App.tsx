@@ -5,6 +5,8 @@ import Footer from "./components/Footer";
 import HomePage from "./page/home/HomePage";
 import MovieDetailPage from "./page/movie-detail/MovieDetailPage";
 import InfiniteTest from "./page/InfiniteTest";
+import UpcomingPage from "./page/upcoming-page/UpcomingPage";
+import SearchResultPage from "./page/search-result/SearchResultPage";
 
 function App() {
   return (
@@ -13,11 +15,11 @@ function App() {
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="now-playing" element={<div>now-playing</div>} />
-        <Route path="upcoming" element={<div>upcoming</div>} />
+        <Route path="upcoming" element={<UpcomingPage />} />
         <Route path="top-rated" element={<div>top-rated</div>} />
         <Route path="movie-detail" element={<MovieDetailPage />} />
         <Route path="movie-detail/:id" element={<MovieDetailPage />} />
-        <Route path="search-result" element={<div>search-result</div>} />
+        <Route path="search-result" element={<SearchResultPage />} />
         <Route path="test" element={<InfiniteTest />} />
       </Routes>
       <Footer />
