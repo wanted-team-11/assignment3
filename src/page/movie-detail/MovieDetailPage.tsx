@@ -23,7 +23,7 @@ const MovieDetailPage = () => {
     return res.json() as Promise<Movie>;
   };
 
-  const movieDetail = useQuery(["get-movie-detail"], getMovieDetail);
+  const movieDetail = useQuery(["get-movie-detail", params.id], getMovieDetail);
 
   const getMovieVideo = async () => {
     if (params.id === undefined) return;
@@ -31,7 +31,7 @@ const MovieDetailPage = () => {
     return res.json() as Promise<Video>;
   };
 
-  const movieVideo = useQuery(["get-movie-video"], getMovieVideo);
+  const movieVideo = useQuery(["get-movie-video", params.id], getMovieVideo);
 
   const posterUrl = API.getMoviePoster(movieDetail.data?.poster_path);
 
