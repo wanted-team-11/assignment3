@@ -1,13 +1,17 @@
+import { useEffect } from "react";
 import styled from "styled-components";
 import InfiniteScrollList from "../../components/InfiniteScrollList";
 import { fetchTopRatedMovies } from "../../services/fetchMovies";
 
 const TopRatePage = () => {
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, []);
   return (
     <>
       <TopRateContainer>
         <MovieContainer>
-          <Title>TOP RATE</Title>
+          <Title>Top 랭킹 영화</Title>
           <hr />
         </MovieContainer>
       </TopRateContainer>
@@ -28,6 +32,6 @@ const MovieContainer = styled.ul`
 
 const Title = styled.h1`
   padding-left: 70px;
-  font-size: 2rem;
+  font-size: 22px;
   font-weight: 700;
 `;
