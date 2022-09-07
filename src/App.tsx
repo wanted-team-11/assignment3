@@ -4,7 +4,7 @@ import Footer from "./components/Footer";
 
 import HomePage from "./page/home/HomePage";
 import MovieDetailPage from "./page/movie-detail/MovieDetailPage";
-import InfiniteTest from "./page/home/InfiniteTest";
+import InfiniteTest from "./page/InfiniteTest";
 
 function App() {
   return (
