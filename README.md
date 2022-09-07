@@ -154,6 +154,8 @@
 
 - 공통 사항
 
+
+
   - Loading 상태 표기
     - 초기에 useQuery에서 받아오는 응답 중 isLoading을 활용해 Loading 상태를 구현하려 했으나 isSuccess를 활용해 데이터를 받아 렌더링하는 부분과 경합되어 Loading 상태 구현에 어려움 직면
     - isLoading이라는 state를 선언해서 img태그에 onLoad속성을 활용해 setIsLoading으로 state를 변화시켜 Loading상태 구현 성공
@@ -166,6 +168,10 @@
 
 - movies / 리스트 페이지
 
+
+https://user-images.githubusercontent.com/46833758/188915871-2417eee1-f99a-4fc3-a901-9e5f9c2ca606.mp4
+
+
   - 한번에 가져올 데이터 최대 20
     - axios로 인스턴스를 생성해서 각 페이지에 맞는 API를 요청해 데이터들을 받아오는 함수작성 후 HomepageContainer에서 useQuery를 활용하여 데이터 관리
   - 제목, 포스터, 별점 표시
@@ -177,6 +183,14 @@
 
 - movie / 상세 페이지
 
+
+
+
+https://user-images.githubusercontent.com/46833758/188916819-efdf194d-2e57-44a1-adca-9ff742ca32a2.mp4
+
+
+
+
   - 비디오 있는 경우, 페이지 진입 시 자동으로 비디오 플레이
     - 각 영화의 트레일러 영상(유튜브)이 있을 경우 유튜브에서 임베드코드를 받은 곳에 autoplay속성을 추가해서 상세 페이지 진입 시 영상이 자동재생되도록 구현
   - 제목, 포스터, 별점, 제작 연도, 장르 데이터 활용해서 UI 표기
@@ -185,6 +199,10 @@
   <br />
 
 - search
+
+
+https://user-images.githubusercontent.com/46833758/188915889-0083a595-db37-4013-9b88-5e90439c87ca.mp4
+
 
   - 제목, 포스터, 별점
     - 받아온 데이터를 map을 사용해서 포스터, 제목, 별점 표시
