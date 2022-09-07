@@ -11,10 +11,11 @@ function App() {
       <GNB />
       <Routes>
         <Route path="/" element={<HomePage />} />
-        <Route path="now-playing" element={<MovieDetailPage />} />
+        <Route path="now-playing" element={<div>now-playing</div>} />
         <Route path="upcoming" element={<div>upcoming</div>} />
         <Route path="top-rated" element={<div>top-rated</div>} />
-        <Route path="movie-detail" element={<div>movie-detail</div>} />
+        <Route path="movie-detail" element={<MovieDetailPage />} />
+        <Route path="movie-detail/:id" element={<MovieDetailPage />} />
         <Route path="search-result" element={<div>search-result</div>} />
       </Routes>
       <Footer />
