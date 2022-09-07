@@ -4,6 +4,7 @@ import Footer from "./components/Footer";
 
 import HomePage from "./page/home/HomePage";
 import MovieDetailPage from "./page/movie-detail/MovieDetailPage";
+import InfiniteTest from "./page/home/InfiniteTest";
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Route path="top-rated" element={<div>top-rated</div>} />
         <Route path="movie-detail" element={<div>movie-detail</div>} />
         <Route path="search-result" element={<div>search-result</div>} />
+        <Route path="test" element={<InfiniteTest />} />
       </Routes>
       <Footer />
     </BrowserRouter>
