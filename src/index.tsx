@@ -6,7 +6,7 @@ import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/Theme";
-import TopButton from "./page/movie-detail/components/TopButton";
+import TopButton from "./components/TopButton";
 const queryClient = new QueryClient();
 
 const root = ReactDOM.createRoot(

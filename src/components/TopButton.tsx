@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { FaChevronUp } from "react-icons/fa";
+import { useEffect, useRef, useState } from "react";
 
 const TopButton = () => {
   const handleScroll = () => {
@@ -9,8 +10,22 @@ const TopButton = () => {
       behavior: "smooth",
     });
   };
+
+  const [isVisible, setIsVisible] = useState(false);
+  const prevYPos = useRef(0);
+  useEffect(() => {
+    const handleButtonVisibilaty = () => {
+      setIsVisible(window.scrollY !== 0);
+      prevYPos.current = window.scrollY;
+    };
+    window.addEventListener("scroll", handleButtonVisibilaty);
+    return () => {
+      window.removeEventListener("scroll", handleButtonVisibilaty);
+    };
+  }, []);
+
   return (
-    <PositionContainer>
+    <PositionContainer visible={isVisible}>
       <TopBtn onClick={handleScroll}>
         <FaChevronUp />
       </TopBtn>
@@ -20,11 +35,13 @@ const TopButton = () => {
 
 export default TopButton;
 
-const PositionContainer = styled.div`
+const PositionContainer = styled.div<{ visible: boolean }>`
   position: fixed;
   width: 100%;
   top: 90px;
   z-index: 1000;
+
+  opacity: ${({ visible }) => (visible ? 1 : 0)};
 
   // 데스크탑
   @media screen and (min-width: 480px) {
