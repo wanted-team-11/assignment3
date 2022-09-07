@@ -2,6 +2,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import GNB from "./components/GNB";
 import Footer from "./components/Footer";
 
+import PopularPage from "./page/popular/PopularPage";
 import HomePage from "./page/home/HomePage";
 import MovieDetailPage from "./page/movie-detail/MovieDetailPage";
 import InfiniteTest from "./page/InfiniteTest";
@@ -18,6 +19,7 @@ function App() {
         <Route path="upcoming" element={<UpcomingPage />} />
         <Route path="top-rated" element={<div>top-rated</div>} />
         <Route path="movie-detail" element={<MovieDetailPage />} />
+        <Route path="popular" element={<PopularPage />} />
         <Route path="movie-detail/:id" element={<MovieDetailPage />} />
         <Route path="search-result" element={<SearchResultPage />} />
         <Route path="test" element={<InfiniteTest />} />

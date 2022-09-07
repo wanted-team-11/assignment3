@@ -44,6 +44,15 @@ export const fetchTopRatedMovies = async (
   return response.data;
 };
 
+export const fetchPopularMovies = async (
+  pageParam: number
+): Promise<ResponseProps> => {
+  const response = await instance.get(
+    `movie/popular?api_key=${API_KEY}&page=${pageParam}`
+  );
+  return response.data;
+};
+
 export const fetchSearchResultMovies = async (
   pageParam: number,
   query?: string
