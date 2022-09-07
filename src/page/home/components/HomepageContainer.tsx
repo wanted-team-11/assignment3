@@ -81,8 +81,8 @@ const HomePageContainer = () => {
               {movieQuery.isSuccess &&
                 movieQuery.data.data.results.map((movies: Movies) => {
                   return (
-                    <SwiperSlide>
-                      <MoviesContainer key={movies.id} movies={movies} />
+                    <SwiperSlide key={movies.id}>
+                      <MoviesContainer movies={movies} />
                     </SwiperSlide>
                   );
                 })}
