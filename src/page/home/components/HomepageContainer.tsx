@@ -1,4 +1,3 @@
-import React from "react";
 import { useQuery } from "@tanstack/react-query";
 import { Link } from "react-router-dom";
 import {
@@ -9,7 +8,7 @@ import {
 } from "../../api/api";
 import MoviesContainer from "./MoviesContainer";
 import { Movies } from "../types/movie.type";
-import * as S from "./styles/HomePage.styled";
+import * as S from "./styles/HomepageContainer.styled";
 import { Swiper, SwiperSlide } from "swiper/react";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -32,30 +31,30 @@ const HomePageContainer = () => {
     TopRatedMovieAPi()
   );
 
-  const HOMEPAGE_CONTAINER = [
+  const HOMEPAGE_DATA = [
     {
       id: 1,
       title: "인기 영화",
       path: "/popular",
-      getData: PopularMovie_query,
+      movieQuery: PopularMovie_query,
     },
     {
       id: 2,
       title: "현재 상영중인 영화",
       path: "/now-playing",
-      getData: NowPlayingMovie_query,
+      movieQuery: NowPlayingMovie_query,
     },
     {
       id: 3,
       title: "개봉 예정인 영화",
       path: "/upcoming",
-      getData: UpcomingMovie_query,
+      movieQuery: UpcomingMovie_query,
     },
     {
       id: 4,
       title: "Top 랭킹 영화",
       path: "/top-rated",
-      getData: TopRatedMovie_query,
+      movieQuery: TopRatedMovie_query,
     },
   ];
 
@@ -63,7 +62,7 @@ const HomePageContainer = () => {
 
   return (
     <>
-      {HOMEPAGE_CONTAINER.map(({ id, title, path, getData }) => (
+      {HOMEPAGE_DATA.map(({ id, title, path, movieQuery }) => (
         <S.Wrapper key={id}>
           <S.TitleContainer>
             <S.CategoryTitle>{title}</S.CategoryTitle>
@@ -79,15 +78,11 @@ const HomePageContainer = () => {
             className="mySwiper"
           >
             <S.MoviesContainer>
-              {getData.isSuccess &&
-                getData.data.data.results.map((movies: Movies) => {
+              {movieQuery.isSuccess &&
+                movieQuery.data.data.results.map((movies: Movies) => {
                   return (
                     <SwiperSlide>
-                      <MoviesContainer
-                        key={movies.id}
-                        movies={movies}
-                        getData={getData}
-                      />
+                      <MoviesContainer key={movies.id} movies={movies} />
                     </SwiperSlide>
                   );
                 })}
