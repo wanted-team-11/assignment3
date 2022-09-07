@@ -1,10 +1,15 @@
 import * as S from "./styles/GNB.styled";
-import { useNavigate } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import { BsSearch } from "react-icons/bs";
-import { useState } from "react";
+import { useState, useEffect } from "react";
 
 const GNB = () => {
   const navigate = useNavigate();
+
+  const { pathname } = useLocation();
+  useEffect(() => {
+    window.scrollTo(0, 0);
+  }, [pathname]);
 
   const moveToListPage = (page: string) => {
     navigate(`/${page}`);

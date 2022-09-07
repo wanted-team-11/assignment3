@@ -10,7 +10,8 @@ const UpcomingPage = () => {
     <>
       <Container>
         <Wrapper>
-          <h1>개봉 예정작</h1>
+          <h1 style={{ paddingLeft: "70px" }}>개봉 예정작</h1>
+          <hr style={{ margin: "8px 0px" }} />
         </Wrapper>
       </Container>
       <InfiniteScrollList fetchCallback={fetchUpcoMingMovies} />
@@ -29,6 +30,5 @@ const Wrapper = styled.div`
   width: 100%;
   max-width: 1180px;
   font-size: 22px;
-  padding-left: 70px;
   font-weight: bold;
 `;
