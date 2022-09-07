@@ -59,5 +59,5 @@ export const Input = styled.input`
 
 export const Padding = styled.div`
   width: 100%;
-  padding: 31px;
+  padding: 80px;
 `;

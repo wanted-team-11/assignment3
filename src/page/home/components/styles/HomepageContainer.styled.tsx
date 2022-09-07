@@ -13,8 +13,7 @@ export const CategoryTitle = styled.div`
 
 export const Wrapper = styled.div`
   width: 1260px;
-  margin: 0 auto;
-  padding: 50px 0;
+  margin: 0 auto 120px;
   overflow-x: scroll;
   .swiper-button-next {
     width: 50px;

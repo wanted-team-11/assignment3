@@ -10,13 +10,13 @@ type Props = {
   query?: string;
 };
 
-const InfiniteScrollList = ({ fetchCallback, query }: Props) => {
+const InfiniteScrollList = ({ fetchCallback, query = "" }: Props) => {
   const { ref, inView } = useInView();
   const navigate = useNavigate();
 
   const { data, isLoading, isFetchingNextPage, fetchNextPage } =
     useInfiniteQuery(
-      ["movie"],
+      ["movie", query],
       ({ pageParam = 1 }) => fetchCallback(pageParam, query),
       {
         getNextPageParam: (lastPage) => lastPage.page + 1,

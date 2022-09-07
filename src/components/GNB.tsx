@@ -47,16 +47,13 @@ const GNB = () => {
           <S.Button onClick={() => moveToListPage("top-rated")}>
             별점 높은 영화
           </S.Button>
-          <S.Button onClick={() => moveToListPage("search-list")}>
-            영화 검색
-          </S.Button>
         </S.LeftWrap>
         <S.RightWrap>
           <S.Search>
             <BsSearch />
           </S.Search>
           <S.Input
-            placeholder="콘텐츠, 인물, 컬렉션, 유저를 검색해보세요."
+            placeholder="영화 제목을 검색해보세요."
             value={inputText}
             onChange={handleInput}
             onKeyPress={handleSearch}
