@@ -2,7 +2,6 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import { GlobalStyle } from "./styles/GlobalStyles";
-import { RecoilRoot } from "recoil";
 import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
 import { ThemeProvider } from "styled-components";
 import theme from "./styles/Theme";
@@ -16,12 +15,10 @@ root.render(
   <React.StrictMode>
     <GlobalStyle />
     <QueryClientProvider client={queryClient}>
-      <RecoilRoot>
-        <ThemeProvider theme={theme}>
-          <App />
-          <TopButton />
-        </ThemeProvider>
-      </RecoilRoot>
+      <ThemeProvider theme={theme}>
+        <App />
+        <TopButton />
+      </ThemeProvider>
     </QueryClientProvider>
   </React.StrictMode>
 );
