@@ -29,6 +29,10 @@
 ## 🌈 실행 방법
 
     $ git clone https://github.com/wanted-team-11/assignment3.git
+
+    // 밑의 링크에서 API key 발급 후 .env파일 작성 (REACT_APP_API_KEY)
+    // https://developers.themoviedb.org/3/getting-started/introduction
+
     $ cd assignment3
     $ npm install
     $ npm start
@@ -79,8 +83,11 @@
   - React-Router-Dom
     - React의 SPA(Single Page Application)특성상 하나의 페이지(HTML)에서 모든 렌더링이 이루어짐
     - React의 이러한 강점을 활용하기 위해 페이지의 로딩없이 페이지에 필요한 컴포넌트를 렌더링 하기 위해 사용
-  - React-Query - 서버 데이터 캐싱 - 데이터 패칭 시 로딩를 한 곳에서 가능 - 쉬운 상태 관리
-    <br />
+  - React-Query
+    - 서버 데이터 캐싱
+    - 데이터 패칭 시 로딩를 한 곳에서 가능
+    - 쉬운 상태 관리
+      <br />
 
 ---
 
@@ -150,9 +157,9 @@
     - 초기에 useQuery에서 받아오는 응답 중 isLoading을 활용해 Loading 상태를 구현하려 했으나 isSuccess를 활용해 데이터를 받아 렌더링하는 부분과 경합되어 Loading 상태 구현에 어려움 직면
     - isLoading이라는 state를 선언해서 img태그에 onLoad속성을 활용해 setIsLoading으로 state를 변화시켜 Loading상태 구현 성공
   - Infinite scroll
-    - 알려주시면 작성하겠습니다..
+    - react-query의 useInifiteQuery와 react-intersection-observer를 활용하여 구현
   - 스크롤 감지하여 ScrollUp button 표시되도록, 누를 시 최상단으로 스크롤 이동
-    - 이건 지금 작업중
+    - scroll position이 0이 아닐 때, 즉 스크롤이 밑으로 내려갔을 때 버튼 노출
 
   <br />
 
@@ -173,14 +180,15 @@
     - 각 영화의 트레일러 영상(유튜브)이 있을 경우 유튜브에서 임베드코드를 받은 곳에 autoplay속성을 추가해서 상세 페이지 진입 시 영상이 자동재생되도록 구현
   - 제목, 포스터, 별점, 제작 연도, 장르 데이터 활용해서 UI 표기
     - 받아온 데이터를 map메서드로 제목, 포스터(없을때는 noImage.jpg), 평점(별점), 연도, 장르 표시 완료
-  - 그 외의 데이터 추가 활용 여부는 자유
 
   <br />
 
 - search
 
   - 제목, 포스터, 별점
+    - 받아온 데이터를 map을 사용해서 포스터, 제목, 별점 표시
   - 포스터 없는 경우, 대체 이미지 사용
+    - 포스터가 없는 데이터에 대해 대체 이미지(public/noImage.jpg)를 사용해 대체이미지 구현
 
   <br />
 
